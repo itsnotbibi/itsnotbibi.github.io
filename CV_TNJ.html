@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nicolae Junior Trocaru — Mechanical &amp; Mechatronics Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0f1e2e; --bg-alt:#14283c; --bg-alt2:#182f46;
+    --line:#2a4a63; --line-soft:#1e3650;
+    --ink:#e8eef2; --ink-dim:#93aabd; --ink-dimmer:#5f7a90;
+    --cyan:#6fb7e0; --copper:#c98a52; --copper-soft:rgba(201,138,82,0.16);
+    --font-display:'Oswald', sans-serif;
+    --font-body:'IBM Plex Sans', sans-serif;
+    --font-mono:'IBM Plex Mono', monospace;
+    --max-w:920px; --nav-h:60px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; padding-top:var(--nav-h);
+    background:
+      linear-gradient(var(--line-soft) 1px, transparent 1px) 0 0/44px 44px,
+      linear-gradient(90deg, var(--line-soft) 1px, transparent 1px) 0 0/44px 44px,
+      var(--bg);
+    color:var(--ink); font-family:var(--font-body); line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+  }
+  a{color:var(--cyan);}
+  a:focus-visible, button:focus-visible, .card:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible{outline:2px solid var(--copper); outline-offset:3px;}
+  .wrap{max-width:var(--max-w); margin:0 auto; padding:0 24px;}
+
+  /* ---------- top nav ---------- */
+  #topnav{
+    position:fixed; top:0; left:0; right:0; height:var(--nav-h); z-index:50;
+    background:rgba(15,30,46,0.92); backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+    display:flex; align-items:center; justify-content:space-between;
+    padding:0 24px;
+  }
+  #topnav .brand{
+    font-family:var(--font-display); font-weight:600; font-size:15px; letter-spacing:.04em;
+    text-transform:uppercase; color:var(--ink); text-decoration:none; white-space:nowrap;
+  }
+  #topnav .brand span{color:var(--copper);}
+  #topnav nav{display:flex; gap:6px;}
+  #topnav nav a{
+    font-family:var(--font-mono); font-size:12px; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--ink-dim); text-decoration:none; padding:9px 14px; position:relative;
+    transition:color .2s ease;
+  }
+  #topnav nav a:hover{color:var(--ink);}
+  #topnav nav a.active{color:var(--cyan);}
+  #topnav nav a.active::after{
+    content:""; position:absolute; left:14px; right:14px; bottom:4px; height:2px; background:var(--copper);
+  }
+  @media (max-width:560px){
+    #topnav nav a{padding:9px 9px; font-size:10.5px;}
+  }
+
+  .page{display:none;}
+  .page.active{display:block; animation:pagefade .35s ease;}
+  @keyframes pagefade{ from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);} }
+
+  /* ---------- hero (home) ---------- */
+  .titleblock{border:1px solid var(--line); margin:32px auto 40px; max-width:calc(var(--max-w) + 48px); background:var(--bg-alt); position:relative; padding:40px 36px;}
+  .titleblock::before, .titleblock::after{content:""; position:absolute; width:14px; height:14px; border:1px solid var(--copper);}
+  .titleblock::before{ top:-1px; left:-1px; border-right:none; border-bottom:none; }
+  .titleblock::after{ bottom:-1px; right:-1px; border-left:none; border-top:none; top:auto; left:auto;}
+  .eyebrow{font-family:var(--font-mono); font-size:12px; letter-spacing:.14em; color:var(--cyan); text-transform:uppercase;}
+  h1.name{font-family:var(--font-display); font-weight:700; font-size:clamp(32px, 6vw, 56px); letter-spacing:.01em; text-transform:uppercase; margin:10px 0 6px; color:var(--ink);}
+  .role{font-family:var(--font-display); font-weight:500; font-size:clamp(15px, 2.2vw, 20px); color:var(--copper); text-transform:uppercase; letter-spacing:.06em; margin:0 0 20px;}
+  .herotext{color:var(--ink-dim); max-width:56ch; font-size:15.5px; margin:0 0 26px;}
+  .herobtns{display:flex; gap:12px; flex-wrap:wrap;}
+  .btn{
+    font-family:var(--font-mono); font-size:12px; text-transform:uppercase; letter-spacing:.06em;
+    padding:11px 20px; text-decoration:none; cursor:pointer; border:1px solid var(--copper);
+    background:transparent; color:var(--copper); transition:background .2s ease, color .2s ease;
+  }
+  .btn:hover{background:var(--copper); color:#1a1006;}
+  .btn.ghost{border-color:var(--line); color:var(--ink-dim);}
+  .btn.ghost:hover{border-color:var(--cyan); color:var(--cyan); background:transparent;}
+
+  .stampline{display:grid; grid-template-columns:repeat(auto-fit, minmax(150px,1fr)); border-top:1px solid var(--line); margin-top:28px; font-family:var(--font-mono); font-size:12.5px;}
+  .stampcell{padding:14px 18px 0; }
+  .stampcell .k{color:var(--ink-dimmer); display:block; text-transform:uppercase; letter-spacing:.08em; font-size:10.5px; margin-bottom:4px;}
+  .stampcell a{color:var(--ink); text-decoration:none;}
+  .stampcell a:hover{color:var(--cyan); text-decoration:underline;}
+
+  .sheet{max-width:var(--max-w); margin:0 auto; padding:56px 24px 0; scroll-margin-top:80px;}
+  .sheet:first-of-type{padding-top:20px;}
+  .dimhead{display:flex; align-items:center; gap:14px; margin-bottom:30px;}
+  .dimhead .num{font-family:var(--font-mono); font-size:12px; color:var(--copper); white-space:nowrap;}
+  .dimhead .arrow{color:var(--line); font-family:var(--font-mono);}
+  .dimhead .rule{flex:1; height:1px; background:repeating-linear-gradient(90deg, var(--line) 0 6px, transparent 6px 12px);}
+  .dimhead h2{font-family:var(--font-display); font-weight:600; font-size:22px; letter-spacing:.05em; text-transform:uppercase; margin:0; white-space:nowrap;}
+  .lede{color:var(--ink-dim); max-width:62ch; font-size:15.5px;}
+
+  .entry{border-left:1px solid var(--line); padding:2px 0 26px 24px; position:relative; margin-bottom:6px;}
+  .entry::before{content:""; position:absolute; left:-5px; top:4px; width:9px; height:9px; background:var(--bg); border:1px solid var(--copper); transform:rotate(45deg);}
+  .entry:last-child{padding-bottom:0;}
+  .entry .when{font-family:var(--font-mono); font-size:11.5px; color:var(--cyan); text-transform:uppercase; letter-spacing:.06em;}
+  .entry h3{font-family:var(--font-display); font-size:19px; font-weight:600; margin:4px 0 2px; letter-spacing:.01em;}
+  .entry .org{color:var(--ink-dim); font-size:14px; margin-bottom:10px;}
+  .entry ul{margin:8px 0 0; padding-left:18px; color:var(--ink-dim); font-size:14.5px;}
+  .entry li{margin-bottom:4px;}
+
+  .grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:16px;}
+  .card{border:1px solid var(--line); background:var(--bg-alt); padding:22px 20px; position:relative; transition:border-color .25s ease, transform .25s ease, box-shadow .25s ease;}
+  .card:hover{border-color:var(--copper); transform:translateY(-3px); box-shadow:0 10px 24px -14px rgba(201,138,82,.35);}
+  .card .tag{font-family:var(--font-mono); font-size:10.5px; color:var(--copper); text-transform:uppercase; letter-spacing:.08em; border:1px solid var(--copper); display:inline-block; padding:2px 8px; margin-bottom:12px;}
+  .card h3{font-family:var(--font-display); font-size:17px; margin:0 0 8px; font-weight:600;}
+  .card p{color:var(--ink-dim); font-size:14px; margin:0;}
+
+  .skillgroup{margin-bottom:30px;}
+  .skillgroup h3{font-family:var(--font-mono); font-size:12px; color:var(--ink-dimmer); text-transform:uppercase; letter-spacing:.1em; margin:0 0 14px; padding-bottom:8px; border-bottom:1px solid var(--line);}
+  .skillrow{display:grid; grid-template-columns:1fr auto; align-items:center; gap:14px; padding:9px 0; border-bottom:1px solid var(--line-soft); font-size:14.5px;}
+  .skillrow:last-child{border-bottom:none;}
+  .dial{width:44px; height:8px; background:var(--line-soft); position:relative; border:1px solid var(--line);}
+  .dial i{display:block; height:100%; background:var(--copper);}
+  .dial-wrap{display:flex; align-items:center; gap:8px;}
+  .dial-label{font-family:var(--font-mono); font-size:10px; color:var(--ink-dimmer); text-transform:uppercase; letter-spacing:.05em; width:52px; text-align:right;}
+
+  .langgrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px;}
+  .langcard{border:1px solid var(--line); padding:18px 20px;}
+  .langcard h3{font-family:var(--font-display); font-size:17px; margin:0 0 6px;}
+  .langcard .sub{color:var(--ink-dim); font-size:13.5px;}
+
+  .contactgrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; margin-bottom:20px;}
+  .contactcard{border:1px solid var(--line); background:var(--bg-alt); padding:22px 20px;}
+  .contactcard h3{font-family:var(--font-mono); font-size:11px; color:var(--ink-dimmer); text-transform:uppercase; letter-spacing:.1em; margin:0 0 10px;}
+  .contactcard a, .contactcard div{color:var(--ink); text-decoration:none; font-size:15px;}
+  .contactcard a:hover{color:var(--cyan);}
+
+  footer{margin-top:80px; border-top:1px solid var(--line); background:var(--bg-alt);}
+  .legend{text-align:center; font-family:var(--font-mono); font-size:10.5px; color:var(--ink-dimmer); padding:20px 24px; border-top:1px solid var(--line-soft);}
+  ::selection{background:var(--copper-soft); color:var(--ink);}
+
+  /* ---------- admin ---------- */
+  #adminToggle{
+    position:fixed; bottom:20px; right:20px; z-index:60;
+    font-family:var(--font-mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase;
+    background:var(--bg-alt); color:var(--ink-dimmer); border:1px solid var(--line);
+    padding:9px 14px; cursor:pointer; display:flex; align-items:center; gap:7px;
+    transition:border-color .2s ease, color .2s ease;
+  }
+  #adminToggle:hover{border-color:var(--copper); color:var(--copper);}
+  #adminToggle.active{border-color:var(--cyan); color:var(--cyan);}
+  #adminBar{
+    position:fixed; top:0; left:0; right:0; z-index:59;
+    background:var(--copper); color:#1a1006; font-family:var(--font-mono); font-size:12px;
+    display:none; align-items:center; justify-content:center; gap:16px; padding:9px 12px; letter-spacing:.04em;
+  }
+  #adminBar.show{display:flex;}
+  #adminBar button{font-family:var(--font-mono); font-size:11px; text-transform:uppercase; letter-spacing:.05em; background:#1a1006; color:var(--copper); border:1px solid #1a1006; padding:5px 12px; cursor:pointer;}
+  #adminBar button:hover{opacity:.85;}
+  body.admin-mode{padding-top:calc(var(--nav-h) + 36px);}
+  body.admin-mode #topnav{top:36px;}
+
+  [contenteditable="true"]{outline:1px dashed var(--cyan); outline-offset:3px; border-radius:2px; cursor:text;}
+  [contenteditable="true"]:focus{outline:1px solid var(--cyan);}
+  .admin-only{display:none;}
+  body.admin-mode .admin-only{display:inline-flex;}
+  .rm-btn{font-family:var(--font-mono); font-size:10px; text-transform:uppercase; color:#e07a5f; border:1px solid #e07a5f; background:transparent; padding:2px 8px; cursor:pointer; margin-left:8px;}
+  .rm-btn:hover{background:rgba(224,122,95,.12);}
+  .add-btn{font-family:var(--font-mono); font-size:11px; text-transform:uppercase; letter-spacing:.05em; color:var(--cyan); border:1px dashed var(--cyan); background:transparent; padding:8px 16px; cursor:pointer; margin-top:6px;}
+  .add-btn:hover{background:rgba(111,183,224,.08);}
+  .level-select{font-family:var(--font-mono); font-size:10px; background:var(--bg-alt2); color:var(--ink); border:1px solid var(--line); padding:2px 4px;}
+  #saveStatus{font-family:var(--font-mono); font-size:10.5px; color:var(--ink-dimmer); text-align:center; padding:0 24px 14px;}
+</style>
+</head>
+<body>
+
+<div id="adminBar">
+  <span>ADMIN MODE — click any dashed field to edit</span>
+  <button id="saveBtn" type="button">Save changes</button>
+  <button id="exitBtn" type="button">Exit</button>
+</div>
+
+<div id="topnav">
+  <a href="#home" class="brand">N.J.<span>TROCARU</span></a>
+  <nav>
+    <a href="#home" data-page="home">Home</a>
+    <a href="#projects" data-page="projects">Projects</a>
+    <a href="#about" data-page="about">About</a>
+    <a href="#contact" data-page="contact">Contact</a>
+  </nav>
+</div>
+
+<!-- ============ HOME ============ -->
+<div class="page" id="page-home">
+  <div class="sheet" style="padding-top:0;">
+    <div class="titleblock">
+      <span class="eyebrow">Curriculum Vitae · Technical Drawing No. NJT-01</span>
+      <h1 class="name" id="heroName" contenteditable="false">Nicolae Junior Trocaru</h1>
+      <p class="role" id="heroRole" contenteditable="false">Mechanical &amp; Mechatronics Engineer</p>
+      <p class="herotext" id="homeIntro" contenteditable="false">
+        I design, model and simulate mechanical systems — from 3D CAD in SolidWorks and Inventor
+        to the electrical and programming side of automated builds. This is where I keep my
+        work, background, and a way to reach me.
+      </p>
+      <div class="herobtns">
+        <a href="#projects" class="btn">View projects</a>
+        <a href="#contact" class="btn ghost">Get in touch</a>
+      </div>
+      <div class="stampline">
+        <div class="stampcell"><span class="k">Based in</span><span id="cLocation" contenteditable="false">Brezoi, Romania</span></div>
+        <div class="stampcell"><span class="k">Email</span><a href="#" id="cEmailLink"><span id="cEmail" contenteditable="false">Trocaru18Bibi@gmail.com</span></a></div>
+        <div class="stampcell"><span class="k">Phone</span><a href="#" id="cPhoneLink"><span id="cPhone" contenteditable="false">(+40) 0754 798 137</span></a></div>
+        <div class="stampcell"><span class="k">Languages</span><span id="cLangSummary" contenteditable="false">Romanian (native) · English (C1)</span></div>
+      </div>
+    </div>
+  </div>
+
+  <section class="sheet">
+    <div class="dimhead"><span class="num">01</span><span class="arrow">⟵</span><h2>Featured work</h2><div class="rule"></div></div>
+    <div class="grid" id="featuredGrid"></div>
+    <p style="margin-top:18px;"><a href="#projects" class="btn ghost">See all projects →</a></p>
+  </section>
+</div>
+
+<!-- ============ PROJECTS ============ -->
+<div class="page" id="page-projects">
+  <section class="sheet" style="padding-top:20px;">
+    <div class="dimhead"><span class="num">02</span><span class="arrow">⟵</span><h2>Projects</h2><div class="rule"></div></div>
+    <p class="lede" style="margin-bottom:22px;">Builds, designs and coursework — CAD, simulation, and the occasional bit of code.</p>
+    <div class="grid" id="projectsGrid"></div>
+    <button class="add-btn admin-only" id="addProject" type="button">+ Add project</button>
+  </section>
+</div>
+
+<!-- ============ ABOUT ============ -->
+<div class="page" id="page-about">
+  <section class="sheet" style="padding-top:20px;">
+    <div class="dimhead"><span class="num">03</span><span class="arrow">⟵</span><h2>About</h2><div class="rule"></div></div>
+    <p class="lede" id="profileText" contenteditable="false">
+      Mechanical engineering graduate from POLITEHNICA București with a mechatronics focus — comfortable moving
+      between 3D CAD design, simulation, and the electrical/programming side of automated systems. Practical
+      experience in plumbing design and simulation at SIMEROM, with working knowledge of AutoCAD, SolidWorks and
+      Inventor alongside basic programming (C++, JavaScript, MicroPython) and control tools (LabVIEW, Proteus, PneuAlpha).
+    </p>
+  </section>
+
+  <section class="sheet">
+    <div class="dimhead"><span class="num">03.1</span><span class="arrow">⟵</span><h2>Work Experience</h2><div class="rule"></div></div>
+    <div id="experienceList"></div>
+    <button class="add-btn admin-only" id="addExperience" type="button">+ Add entry</button>
+  </section>
+
+  <section class="sheet">
+    <div class="dimhead"><span class="num">03.2</span><span class="arrow">⟵</span><h2>Education</h2><div class="rule"></div></div>
+    <div id="educationList"></div>
+    <button class="add-btn admin-only" id="addEducation" type="button">+ Add entry</button>
+  </section>
+
+  <section class="sheet">
+    <div class="dimhead"><span class="num">03.3</span><span class="arrow">⟵</span><h2>Skills</h2><div class="rule"></div></div>
+    <div id="skillsWrap"></div>
+  </section>
+
+  <section class="sheet">
+    <div class="dimhead"><span class="num">03.4</span><span class="arrow">⟵</span><h2>Languages</h2><div class="rule"></div></div>
+    <div class="langgrid" id="langGrid"></div>
+  </section>
+</div>
+
+<!-- ============ CONTACT ============ -->
+<div class="page" id="page-contact">
+  <section class="sheet" style="padding-top:20px;">
+    <div class="dimhead"><span class="num">04</span><span class="arrow">⟵</span><h2>Contact</h2><div class="rule"></div></div>
+    <p class="lede" id="contactIntro" contenteditable="false" style="margin-bottom:26px;">
+      Reach out directly by email or phone — happy to talk about roles, projects, or collaborations.
+    </p>
+    <div class="contactgrid">
+      <div class="contactcard">
+        <h3>Email</h3>
+        <a href="#" id="fEmailLink"><span id="fEmail" contenteditable="false">Trocaru18Bibi@gmail.com</span></a>
+      </div>
+      <div class="contactcard">
+        <h3>Phone</h3>
+        <a href="#" id="fPhoneLink"><span id="fPhone" contenteditable="false">(+40) 0754 798 137</span></a>
+      </div>
+      <div class="contactcard">
+        <h3>Location</h3>
+        <div id="fLocation" contenteditable="false">Brezoi, Romania</div>
+      </div>
+      <div class="contactcard">
+        <h3>Driving Licence</h3>
+        <div id="fLicence" contenteditable="false">Categories AM · B1 · B</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="legend">SHEET CV-01 · SCALE N/A · REV 2026-07 · ALL DIMENSIONS FOR REFERENCE ONLY</div>
+    <div id="saveStatus"></div>
+  </footer>
+</div>
+
+<button id="adminToggle" type="button">🔒 Admin</button>
+
+<script>
+/* ============ CONFIG ============ */
+const ADMIN_PASSWORD = "trocaru-admin";
+const STORAGE_KEY = "cv-site-data";
+
+/* ============ DEFAULT DATA ============ */
+const DEFAULTS = {
+  hero: {
+    name: "Nicolae Junior Trocaru",
+    role: "Mechanical &amp; Mechatronics Engineer",
+    intro: "I design, model and simulate mechanical systems — from 3D CAD in SolidWorks and Inventor to the electrical and programming side of automated builds. This is where I keep my work, background, and a way to reach me.",
+    location: "Brezoi, Romania",
+    email: "Trocaru18Bibi@gmail.com",
+    phone: "(+40) 0754 798 137",
+    langSummary: "Romanian (native) · English (C1)",
+    licence: "Categories AM · B1 · B",
+    contactIntro: "Reach out directly by email or phone — happy to talk about roles, projects, or collaborations."
+  },
+  profile: "Mechanical engineering graduate from POLITEHNICA București with a mechatronics focus — comfortable moving between 3D CAD design, simulation, and the electrical/programming side of automated systems. Practical experience in plumbing design and simulation at SIMEROM, with working knowledge of AutoCAD, SolidWorks and Inventor alongside basic programming (C++, JavaScript, MicroPython) and control tools (LabVIEW, Proteus, PneuAlpha).",
+  projects: [
+    { tag: "Add title", title: "Project name", desc: "One or two lines on what it does, what you used to build it (e.g. SolidWorks, C++), and the outcome." },
+    { tag: "Add title", title: "Project name", desc: "One or two lines on what it does, what you used to build it, and the outcome." },
+    { tag: "Add title", title: "Project name", desc: "One or two lines on what it does, what you used to build it, and the outcome." }
+  ],
+  experience: [
+    { when: "06/2022 – 09/2022", title: "Junior Design Engineer", org: "SIMEROM · Bucharest, Romania", bullets: ["3D modeling and design in plumbing", "Design simulation of plumbing structures"] },
+    { when: "06/2021 – 09/2021", title: "Bartender", org: "IDEAL MAC SRL · Brezoi, Romania", bullets: ["Built and maintained relationships with suppliers and customers", "Managed current staff and served customers", "Maintained a clean workplace and a good atmosphere"] }
+  ],
+  education: [
+    { when: "2019 – 2023", title: "Bachelor's Degree, Mechanical Engineering &amp; Mechatronics", org: "POLITEHNICA București National University for Science and Technology, Bucharest" },
+    { when: "2015 – 2019", title: "High School Diploma", org: "Liceul Gheorghe Surdu, Brezoi" }
+  ],
+  skills: [
+    { group: "Mechanical Design", items: [
+      { label: "AutoCAD", level: "Good" },
+      { label: "SolidWorks", level: "Good" },
+      { label: "Autodesk Inventor", level: "Good" }
+    ]},
+    { group: "Electrical &amp; Control Systems", items: [
+      { label: "LabVIEW", level: "Basic" },
+      { label: "Proteus", level: "Basic" },
+      { label: "PneuAlpha", level: "Basic" }
+    ]},
+    { group: "Programming", items: [
+      { label: "C++", level: "Basic" },
+      { label: "JavaScript", level: "Basic" },
+      { label: "MicroPython", level: "Basic" }
+    ]},
+    { group: "Office &amp; General", items: [
+      { label: "Microsoft Office (Word, Excel, PowerPoint) — ECDL Certified", level: "Good" }
+    ]}
+  ],
+  languages: [
+    { name: "Romanian", sub: "Native" },
+    { name: "English", sub: "C1 — Listening, Reading, Writing, Spoken Production &amp; Interaction" }
+  ]
+};
+
+const LEVELS = { Basic: 45, Good: 80, Excellent: 100 };
+let DATA = JSON.parse(JSON.stringify(DEFAULTS));
+let isAdmin = false;
+
+/* ============ STORAGE ============ */
+async function loadData(){
+  try{
+    const res = await window.storage.get(STORAGE_KEY, true);
+    if(res && res.value){
+      const parsed = JSON.parse(res.value);
+      DATA = Object.assign(JSON.parse(JSON.stringify(DEFAULTS)), parsed);
+    }
+  }catch(e){
+    console.log("Using default content:", e && e.message);
+  }
+  renderAll();
+}
+
+async function saveData(){
+  collectEditedValues();
+  const statusEl = document.getElementById('saveStatus');
+  statusEl.textContent = "Saving…";
+  try{
+    const result = await window.storage.set(STORAGE_KEY, JSON.stringify(DATA), true);
+    statusEl.textContent = result ? "Saved — changes are now live for every visitor." : "Save failed. Try again.";
+  }catch(e){
+    statusEl.textContent = "Save failed: storage unavailable.";
+  }
+  setTimeout(()=>{ statusEl.textContent = ""; }, 4000);
+}
+
+/* ============ COLLECT EDITS ============ */
+function collectEditedValues(){
+  DATA.hero.name = document.getElementById('heroName').innerHTML.trim();
+  DATA.hero.role = document.getElementById('heroRole').innerHTML.trim();
+  DATA.hero.intro = document.getElementById('homeIntro').innerHTML.trim();
+  DATA.hero.location = document.getElementById('cLocation').innerHTML.trim();
+  DATA.hero.email = document.getElementById('cEmail').innerHTML.trim();
+  DATA.hero.phone = document.getElementById('cPhone').innerHTML.trim();
+  DATA.hero.langSummary = document.getElementById('cLangSummary').innerHTML.trim();
+  DATA.hero.licence = document.getElementById('fLicence').innerHTML.trim();
+  DATA.hero.contactIntro = document.getElementById('contactIntro').innerHTML.trim();
+  DATA.profile = document.getElementById('profileText').innerHTML.trim();
+
+  DATA.projects = Array.from(document.querySelectorAll('#projectsGrid .card')).map(card=>({
+    tag: card.querySelector('.tag').innerHTML.trim(),
+    title: card.querySelector('h3').innerHTML.trim(),
+    desc: card.querySelector('p').innerHTML.trim()
+  }));
+
+  DATA.experience = Array.from(document.querySelectorAll('#experienceList .entry')).map(entry=>({
+    when: entry.querySelector('.when').innerHTML.trim(),
+    title: entry.querySelector('h3').innerHTML.trim(),
+    org: entry.querySelector('.org').innerHTML.trim(),
+    bullets: Array.from(entry.querySelectorAll('li')).map(li=>li.innerHTML.trim())
+  }));
+
+  DATA.education = Array.from(document.querySelectorAll('#educationList .entry')).map(entry=>({
+    when: entry.querySelector('.when').innerHTML.trim(),
+    title: entry.querySelector('h3').innerHTML.trim(),
+    org: entry.querySelector('.org').innerHTML.trim()
+  }));
+
+  DATA.skills = Array.from(document.querySelectorAll('#skillsWrap .skillgroup')).map(group=>({
+    group: group.querySelector('h3').innerHTML.trim(),
+    items: Array.from(group.querySelectorAll('.skillrow')).map(row=>({
+      label: row.querySelector('.label').innerHTML.trim(),
+      level: row.querySelector('.level-select') ? row.querySelector('.level-select').value : row.querySelector('.dial-label').textContent.trim()
+    }))
+  }));
+
+  DATA.languages = Array.from(document.querySelectorAll('#langGrid .langcard')).map(card=>({
+    name: card.querySelector('h3').innerHTML.trim(),
+    sub: card.querySelector('.sub').innerHTML.trim()
+  }));
+}
+
+/* ============ RENDER ============ */
+function renderAll(){
+  document.getElementById('heroName').innerHTML = DATA.hero.name;
+  document.getElementById('heroRole').innerHTML = DATA.hero.role;
+  document.getElementById('homeIntro').innerHTML = DATA.hero.intro;
+  document.getElementById('cLocation').innerHTML = DATA.hero.location;
+  document.getElementById('cEmail').innerHTML = DATA.hero.email;
+  document.getElementById('cPhone').innerHTML = DATA.hero.phone;
+  document.getElementById('cLangSummary').innerHTML = DATA.hero.langSummary;
+  const emailPlain = DATA.hero.email.replace(/<[^>]+>/g,'');
+  const phonePlain = DATA.hero.phone.replace(/[^\d+]/g,'');
+  document.getElementById('cEmailLink').href = "mailto:" + emailPlain;
+  document.getElementById('cPhoneLink').href = "tel:" + phonePlain;
+  document.getElementById('fEmailLink').href = "mailto:" + emailPlain;
+  document.getElementById('fPhoneLink').href = "tel:" + phonePlain;
+  document.getElementById('fEmail').innerHTML = DATA.hero.email;
+  document.getElementById('fPhone').innerHTML = DATA.hero.phone;
+  document.getElementById('fLocation').innerHTML = DATA.hero.location;
+  document.getElementById('fLicence').innerHTML = DATA.hero.licence;
+  document.getElementById('contactIntro').innerHTML = DATA.hero.contactIntro;
+  document.getElementById('profileText').innerHTML = DATA.profile;
+
+  renderProjects();
+  renderFeatured();
+  renderExperience();
+  renderEducation();
+  renderSkills();
+  renderLanguages();
+  applyContentEditableState();
+}
+
+function projectCardHTML(p, i, removable){
+  return `<div class="card">
+      <span class="tag" contenteditable="false">${p.tag}</span>
+      <h3 contenteditable="false">${p.title}</h3>
+      <p contenteditable="false">${p.desc}</p>
+      ${removable ? `<button class="rm-btn admin-only" data-remove="projects:${i}" type="button">Remove</button>` : ''}
+    </div>`;
+}
+function renderProjects(){
+  document.getElementById('projectsGrid').innerHTML = DATA.projects.map((p,i)=>projectCardHTML(p,i,true)).join('');
+}
+function renderFeatured(){
+  const featured = DATA.projects.slice(0,3);
+  document.getElementById('featuredGrid').innerHTML = featured.map((p,i)=>projectCardHTML(p,i,false)).join('');
+}
+
+function renderExperience(){
+  document.getElementById('experienceList').innerHTML = DATA.experience.map((e,i)=>`
+    <div class="entry">
+      <div class="when" contenteditable="false">${e.when}</div>
+      <h3 contenteditable="false">${e.title}</h3>
+      <div class="org" contenteditable="false">${e.org}</div>
+      <ul>${e.bullets.map(b=>`<li contenteditable="false">${b}</li>`).join('')}</ul>
+      <button class="rm-btn admin-only" data-remove="experience:${i}" type="button">Remove entry</button>
+    </div>`).join('');
+}
+
+function renderEducation(){
+  document.getElementById('educationList').innerHTML = DATA.education.map((e,i)=>`
+    <div class="entry">
+      <div class="when" contenteditable="false">${e.when}</div>
+      <h3 contenteditable="false">${e.title}</h3>
+      <div class="org" contenteditable="false">${e.org}</div>
+      <button class="rm-btn admin-only" data-remove="education:${i}" type="button">Remove entry</button>
+    </div>`).join('');
+}
+
+function renderSkills(){
+  const wrap = document.getElementById('skillsWrap');
+  wrap.innerHTML = DATA.skills.map(g=>`
+    <div class="skillgroup">
+      <h3 contenteditable="false">${g.group}</h3>
+      ${g.items.map(it=>`
+        <div class="skillrow">
+          <span class="label" contenteditable="false">${it.label}</span>
+          <div class="dial-wrap">
+            <div class="dial"><i style="width:${LEVELS[it.level]||45}%"></i></div>
+            <select class="level-select admin-only">
+              ${Object.keys(LEVELS).map(l=>`<option value="${l}" ${l===it.level?'selected':''}>${l}</option>`).join('')}
+            </select>
+            <span class="dial-label">${it.level}</span>
+          </div>
+        </div>`).join('')}
+    </div>`).join('');
+
+  wrap.querySelectorAll('.level-select').forEach(sel=>{
+    sel.addEventListener('change', (e)=>{
+      const row = e.target.closest('.skillrow');
+      row.querySelector('.dial i').style.width = LEVELS[e.target.value] + '%';
+      row.querySelector('.dial-label').textContent = e.target.value;
+    });
+  });
+}
+
+function renderLanguages(){
+  document.getElementById('langGrid').innerHTML = DATA.languages.map((l,i)=>`
+    <div class="langcard">
+      <h3 contenteditable="false">${l.name}</h3>
+      <div class="sub" contenteditable="false">${l.sub}</div>
+      <button class="rm-btn admin-only" data-remove="languages:${i}" type="button">Remove</button>
+    </div>`).join('');
+}
+
+function applyContentEditableState(){
+  document.querySelectorAll('[contenteditable]').forEach(el=>{
+    el.setAttribute('contenteditable', isAdmin ? 'true' : 'false');
+  });
+}
+
+/* ============ ADD / REMOVE ============ */
+document.addEventListener('click', (e)=>{
+  const rm = e.target.closest('[data-remove]');
+  if(rm && isAdmin){
+    collectEditedValues();
+    const [section, idx] = rm.getAttribute('data-remove').split(':');
+    DATA[section].splice(Number(idx), 1);
+    renderAll();
+  }
+});
+document.getElementById('addProject').addEventListener('click', ()=>{
+  if(!isAdmin) return;
+  collectEditedValues();
+  DATA.projects.push({ tag:"Add title", title:"New project", desc:"Describe what it does, the tools used, and the outcome." });
+  renderAll();
+});
+document.getElementById('addExperience').addEventListener('click', ()=>{
+  if(!isAdmin) return;
+  collectEditedValues();
+  DATA.experience.unshift({ when:"MM/YYYY – MM/YYYY", title:"Role title", org:"Company · City, Country", bullets:["Responsibility one"] });
+  renderAll();
+});
+document.getElementById('addEducation').addEventListener('click', ()=>{
+  if(!isAdmin) return;
+  collectEditedValues();
+  DATA.education.unshift({ when:"YYYY – YYYY", title:"Qualification", org:"Institution, City" });
+  renderAll();
+});
+
+/* ============ ADMIN LOGIN ============ */
+const adminToggle = document.getElementById('adminToggle');
+const adminBar = document.getElementById('adminBar');
+
+adminToggle.addEventListener('click', ()=>{
+  if(isAdmin){ exitAdmin(); return; }
+  const pw = prompt("Admin password:");
+  if(pw === null) return;
+  if(pw === ADMIN_PASSWORD){
+    isAdmin = true;
+    document.body.classList.add('admin-mode');
+    adminBar.classList.add('show');
+    adminToggle.classList.add('active');
+    adminToggle.textContent = "🔓 Admin (on)";
+    applyContentEditableState();
+  }else{
+    alert("Incorrect password.");
+  }
+});
+function exitAdmin(){
+  isAdmin = false;
+  document.body.classList.remove('admin-mode');
+  adminBar.classList.remove('show');
+  adminToggle.classList.remove('active');
+  adminToggle.textContent = "🔒 Admin";
+  applyContentEditableState();
+}
+document.getElementById('exitBtn').addEventListener('click', exitAdmin);
+document.getElementById('saveBtn').addEventListener('click', saveData);
+
+/* ============ PAGE ROUTER ============ */
+const pages = ['home','projects','about','contact'];
+function showPage(id){
+  if(!pages.includes(id)) id = 'home';
+  pages.forEach(p=>{
+    document.getElementById('page-'+p).classList.toggle('active', p===id);
+  });
+  document.querySelectorAll('#topnav nav a').forEach(a=>{
+    a.classList.toggle('active', a.getAttribute('data-page')===id);
+  });
+  window.scrollTo(0,0);
+}
+window.addEventListener('hashchange', ()=> showPage(location.hash.replace('#','')) );
+showPage(location.hash.replace('#','') || 'home');
+
+/* ============ INIT ============ */
+loadData();
+</script>
+
+</body>
+</html>
